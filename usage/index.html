@@ -3,7 +3,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
   
   <title>User Guide - TabsExtra Documentation</title>
   
@@ -18,6 +21,14 @@
   <link rel="stylesheet" href="../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "User Guide";
+    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_url = "/usage/";
+  </script>
+  
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
   <script src="../js/theme.js"></script> 
@@ -169,7 +180,7 @@
 <p>And TabsExtra also provides variants that will force close unsaved tabs without annoying the user with a prompt for every unsaved tab.  It also provides variants to simply skip unsaved tabs.</p>
 <h2 id="sticky-tabs"><a name="user-content-sticky-tabs" href="#sticky-tabs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sticky Tabs</h2>
 <p>TabsExtra allows users to make a tab <em>sticky</em>.  This allows the tab to not close when a bulk <code>close</code> operation is performed.  By default, after any <code>close</code> command is run, the <em>sticky</em> tab properties are forgotten.  You can make a tab&rsquo;s stickiness persist by enabling <a href="#persistent_sticky">persistent_sticky</a>.</p>
-<div class="codehilite"><pre>    <span class="c1">// By default TabsExtra forgets a tab&#39;s &quot;stickiness&quot; when</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// By default TabsExtra forgets a tab&#39;s &quot;stickiness&quot; when</span>
     <span class="c1">// any &quot;tab close&quot; command is issued.  You can make the tab&#39;s</span>
     <span class="c1">// &quot;Stickiness&quot; persist by enabling the following feature.</span>
     <span class="s2">&quot;persistent_sticky&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -179,14 +190,14 @@
 <p>A tab&rsquo;s stickiness can be controlled either the context menu or the quick panel.</p>
 <h2 id="tab-focus-after-close"><a name="user-content-tab-focus-after-close" href="#tab-focus-after-close" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tab Focus After Close</h2>
 <p>By default TabsExtra keeps the current active tab focused, but if the active tab gets deleted, TabsExtra will default to either the left, right, or last active tab (depending how the user has it set).</p>
-<div class="codehilite"><pre>    <span class="c1">// If active window gets closed, default to (left|right|last_active)</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// If active window gets closed, default to (left|right|last_active)</span>
     <span class="s2">&quot;fallback_focus&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
 </pre></div>
 
 
 <h2 id="tab-spawn-position"><a name="user-content-tab-spawn-position" href="#tab-spawn-position" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tab Spawn Position</h2>
 <p>TabsExtra can control where a new window is opened with the <code>spawn_view</code> settings option.</p>
-<div class="codehilite"><pre>    <span class="c1">// Experimental: When opening a view, where should it be spawned at (none|left|active_left|active_right|right)</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Experimental: When opening a view, where should it be spawned at (none|left|active_left|active_right|right)</span>
     <span class="s2">&quot;spawn_view&quot;</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
 </pre></div>
 
@@ -205,7 +216,7 @@
 <li>Sort current order in reverse.</li>
 </ul>
 <p>You can control how numbers are handled in strings by enabling <code>numeric_sort</code>.  Numbers in strings are sorted alphabetically by default, but you can cause the strings to be sorted numerically if needed.</p>
-<div class="codehilite"><pre>    <span class="c1">// When sorting, normal strings will be sorted numerically.</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// When sorting, normal strings will be sorted numerically.</span>
     <span class="c1">//</span>
     <span class="c1">// Example (non-numerical sort):</span>
     <span class="c1">//   test12 test2 test1 =&gt; test1 test12 test2</span>
@@ -217,12 +228,12 @@
 
 
 <p>You can also sort tabs on every file open and save by enabling <code>sort_on_load_save</code> and specifying your desired sort plugin.</p>
-<div class="codehilite"><pre>    <span class="c1">// Sort tabs when a file is opened or saved</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Sort tabs when a file is opened or saved</span>
     <span class="s2">&quot;sort_on_load_save&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
 </pre></div>
 
 
-<div class="codehilite"><pre>    <span class="c1">// Sort module to use when sorting on load and save</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Sort module to use when sorting on load and save</span>
     <span class="c1">//    &quot;module&quot;: plugin that defines what view meta data is used to sort</span>
     <span class="c1">//    &quot;reverse&quot;: (optional) sort tabs in the reverse (true|false)</span>
     <span class="s2">&quot;sort_on_load_save_command&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;module&quot;</span><span class="o">:</span> <span class="s2">&quot;TabsExtra.sort.name&quot;</span><span class="p">}</span>
@@ -257,7 +268,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre>    <span class="c1">// Define sort layout.  Each entry contains:</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Define sort layout.  Each entry contains:</span>
     <span class="c1">//    &quot;module&quot;: plugin that defines what view meta data is used to sort</span>
     <span class="c1">//    &quot;caption&quot;: menu name for entry</span>
     <span class="c1">//    &quot;reverse&quot;: (optional) sort tabs in the reverse (true|false)</span>
@@ -281,7 +292,7 @@
 <dt>def run(views, view_data)</dt>
 <dd>
 <p>This function takes a list of <code>views</code> and an empty list to append sort data to.  The <code>view_data</code> is populated by the <code>run</code> function with arrays of formatted info that will be used to sort the tabs.  Info with the most importance should be appended first.</p>
-<p>If you are dealing with strings that have numbers, and you wish to sort them numerically, you can import the numeric helper with the following import: <code class="codehilite"><span class="kn">from</span> <span class="nn">TabsExtra</span> <span class="kn">import</span> <span class="n">tab_sort_helper</span> <span class="k">as</span> <span class="n">tsh</span></code>.  Once imported you can simply run your data through <code>tab_sort_helper</code>: <code class="codehilite"><span class="n">tsh</span><span class="o">.</span><span class="n">numeric_sort</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span></code>.</p>
+<p>If you are dealing with strings that have numbers, and you wish to sort them numerically, you can import the numeric helper with the following import: <code class="codehilite"><span class="kn">from</span> <span class="nn">TabsExtra</span> <span class="kn">import</span> <span class="n">tab_sort_helper</span> <span class="k">as</span> <span class="n">tsh</span></code>.  Once imported you can simply run your data through <code>tab_sort_helper</code>: <code class="codehilite"><span class="n">tsh</span><span class="o">.</span><span class="n">numeric_sort</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span></code>.</p>
 <p><strong>Parameters</strong>:</p>
 <table>
 <thead>
@@ -302,7 +313,7 @@
 </tbody>
 </table>
 <p><strong>Example</strong>:</p>
-<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">basename</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">basename</span>
 <span class="kn">from</span> <span class="nn">TabsExtra</span> <span class="kn">import</span> <span class="n">tab_sort_helper</span> <span class="k">as</span> <span class="n">tsh</span>
 
 
@@ -310,8 +321,8 @@
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">views</span><span class="p">:</span>
         <span class="n">view_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="p">(</span>
-                <span class="n">tsh</span><span class="o">.</span><span class="n">numeric_sort</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span>
-                <span class="n">tsh</span><span class="o">.</span><span class="n">numeric_sort</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span>
+                <span class="n">tsh</span><span class="o">.</span><span class="n">numeric_sort</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span>
+                <span class="n">tsh</span><span class="o">.</span><span class="n">numeric_sort</span><span class="p">(</span><span class="n">basename</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">file_name</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span>
                 <span class="n">v</span>
             <span class="p">)</span>
         <span class="p">)</span>
@@ -322,7 +333,7 @@
 </dl>
 <h2 id="additional-menu-helper-commands"><a name="user-content-additional-menu-helper-commands" href="#additional-menu-helper-commands" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Additional Menu Helper Commands</h2>
 <p>TabsExtra also adds a number of other miscellaneous useful commands in the tab context menu.  Many of which are already available in the quick panel.  You can control which ones show up in menu by configuring <code>menu_layout</code> in the settings file; you can even control the order.</p>
-<div class="codehilite"><pre>    <span class="c1">// Menu layout include or exclude, in whatever order you desire, the following options:</span>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Menu layout include or exclude, in whatever order you desire, the following options:</span>
     <span class="c1">// [&quot;close&quot;, &quot;sticky&quot;, &quot;open&quot;, &quot;clone&quot;, &quot;save&quot;, &quot;delete&quot;, &quot;rename&quot;, &quot;reveal&quot;, &quot;path&quot;, &quot;revert&quot;, &quot;sort&quot;]</span>
     <span class="c1">// When done, go to Preferences-&gt;Package Settings-&gt;TabsExtra and Install/Upgrade either</span>
     <span class="c1">// the default TabsMenu or the Override Menu which overrides the &quot;Default&quot; package&#39;s menu.</span>
@@ -335,7 +346,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing &amp; Support"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing &amp; Support">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -346,11 +357,10 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>
+    <!-- Copyright etc -->
     
-    Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+      <p>Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
     
-    </p>
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -366,7 +376,7 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/facelessuser/TabsExtra" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
