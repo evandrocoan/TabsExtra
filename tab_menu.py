@@ -59,30 +59,37 @@ Changes:
 ###############################
 # Menu Options
 ###############################
-CLOSE_OPTIONS = '''    { "caption": "-"},
-%(override)s
-    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "left" }, "caption": "Close Tabs to the Left" },
-    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "all" }, "caption": "Close All Tabs" },
+CLOSE_OPTIONS = '''    { "caption": "-", "id": "1_row" },
     {
-        "caption": "Close Tabs(s) - Skip Unsaved",
+        "caption": "Close Options...",
         "children":
         [
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "single", "close_unsaved": false }, "caption": "Close" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "other", "close_unsaved": false }, "caption": "Close Other Tabs" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "right", "close_unsaved": false }, "caption": "Close Tabs to the Right" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "left", "close_unsaved": false }, "caption": "Close Tabs to the Left" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "all", "close_unsaved": false }, "caption": "Close All Tabs" }
-        ]
-    },
-    {
-        "caption": "Close Tabs(s) - Dismiss Unsaved",
-        "children":
-        [
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "single", "unsaved_prompt": false }, "caption": "Close" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "other", "unsaved_prompt": false }, "caption": "Close Other Tabs" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "right", "unsaved_prompt": false }, "caption": "Close Tabs to the Right" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "left", "unsaved_prompt": false }, "caption": "Close Tabs to the Left" },
-            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "all", "unsaved_prompt": false }, "caption": "Close All Tabs" }
+            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "all" }, "caption": "Close All Tabs" },
+            { "command": "close_others_by_index", "args": { "group": -1, "index": -1 }, "caption": "Close Other Tabs" },
+            { "command": "close_to_right_by_index", "args": { "group": -1, "index": -1 }, "caption": "Close Tabs to the Right" },
+            { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "left" }, "caption": "Close Tabs to the Left" },
+            {
+                "caption": "Close Tabs(s) - Skip Unsaved",
+                "children":
+                [
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "single", "close_unsaved": false }, "caption": "Close" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "other", "close_unsaved": false }, "caption": "Close Other Tabs" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "right", "close_unsaved": false }, "caption": "Close Tabs to the Right" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "left", "close_unsaved": false }, "caption": "Close Tabs to the Left" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "all", "close_unsaved": false }, "caption": "Close All Tabs" }
+                ]
+            },
+            {
+                "caption": "Close Tabs(s) - Dismiss Unsaved",
+                "children":
+                [
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "single", "unsaved_prompt": false }, "caption": "Close" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "other", "unsaved_prompt": false }, "caption": "Close Other Tabs" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "right", "unsaved_prompt": false }, "caption": "Close Tabs to the Right" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "left", "unsaved_prompt": false }, "caption": "Close Tabs to the Left" },
+                    { "command": "tabs_extra_close", "args": { "group": -1, "index": -1, "close_type": "all", "unsaved_prompt": false }, "caption": "Close All Tabs" }
+                ]
+            },
         ]
     }'''  # noqa
 
@@ -90,7 +97,7 @@ STICKY_OPTIONS = '''    { "caption": "-" },
     { "command": "tabs_extra_toggle_sticky", "args": { "group": -1, "index": -1 }, "caption": "Sticky Tab" },
     { "command": "tabs_extra_clear_all_sticky", "args": { "group": -1, "force": true }, "caption": "Clear All Sticky Tabs" }'''  # noqa
 
-SAVE_OPTIONS = '''    { "caption": "-" },
+SAVE_OPTIONS = '''    { "caption": "-", "id": "5_row" },
     { "command": "tabs_extra_view_wrapper", "args": {"group": -1, "index": -1, "command": "save"}, "caption": "Save" },
     { "command": "tabs_extra_view_wrapper", "args": {"group": -1, "index": -1, "command": "prompt_save_as"}, "caption": "Save As…" },
     { "command": "save_all", "caption": "Save All" }'''  # noqa
@@ -106,7 +113,9 @@ REVEAL_OPTIONS = '''    { "caption": "-" },
     { "command": "tabs_extra_file", "args": {"group": -1, "index": -1, "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"}}, "caption": "Open Containing Folder…" },
     { "command": "tabs_extra_file", "args": {"group": -1, "index": -1, "command": "reveal_in_side_bar"}, "caption": "Reveal in Side Bar" }'''  # noqa
 
-PATH_OPTIONS = '''    {
+PATH_OPTIONS = '''
+    { "caption": "-", "id": "2_row" },
+    {
         "caption": "Copy File Path",
         "children":
         [
@@ -119,16 +128,14 @@ PATH_OPTIONS = '''    {
 REVERT_OPTIONS = '''    { "caption": "-" },
     { "command": "tabs_extra_revert", "args": {"group": -1, "index": -1, "command": "revert"}, "caption": "Revert File" }'''  # noqa
 
-DELETE_OPTIONS = '''    { "caption": "-" },
-    { "command": "tabs_extra_delete", "args": {"group": -1, "index": -1}, "caption": "Delete File" }'''
+DELETE_OPTIONS = '''    { "command": "tabs_extra_delete", "args": {"group": -1, "index": -1}, "caption": "Delete File" }'''
 
 RENAME_OPTIONS = '''    { "caption": "-" },
     { "command": "tabs_extra_rename", "args": {"group": -1, "index": -1}, "caption": "Rename…" },
     { "command": "tabs_extra_move", "args": {"group": -1, "index": -1}, "caption": "Move…" },
     { "command": "tabs_extra_duplicate", "args": {"group": -1, "index": -1}, "caption": "Duplicate…" }'''
 
-SORT_OPTIONS = '''    { "caption": "-" },
-    {
+SORT_OPTIONS = '''    {
         "caption": "Sort Tabs By…",
         "children":
         [
