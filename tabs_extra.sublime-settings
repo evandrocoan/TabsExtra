@@ -2,10 +2,10 @@
     // By default TabsExtra forgets a tab's "stickiness" when
     // any "tab close" command is issued.  You can make the tab's
     // "Stickiness" persist by enabling the following feature.
-    "persistent_sticky": false,
+    "persistent_sticky": true,
 
-    // If active window gets closed, default to (left|right|last_active)
-    "fallback_focus": "right",
+    // If active view gets closed, select by default the (left|right|last_active) view
+    "fallback_focus": "last_active",
 
     // Experimental: When opening a view, where should it be spawned at (none|left|active_left|active_right|right)
     "spawn_view": "none",
@@ -14,7 +14,7 @@
     // ["close", "sticky", "open", "clone", "save", "delete", "rename", "reveal", "path", "revert", "sort"]
     // When done, go to Preferences->Package Settings->TabsExtra and Install/Upgrade either
     // the default TabsMenu or the Override Menu which overrides the "Default" package's menu.
-    "menu_layout": ["close", "sticky", "open", "clone", "save", "delete", "rename", "reveal", "path", "revert", "sort"],
+    "menu_layout": ["close", "sort", "path", "save", "sticky", "delete", "rename", "revert"],
 
     // Define sort layout.  Each entry contains:
     //    "module": plugin that defines what view meta data is used to sort
