@@ -47,14 +47,6 @@ Are you sure you want to continue?
 ###############################
 # Helpers
 ###############################
-def path2url(path):
-    """
-        Convert a filename to a file:// URL
-        https://stackoverflow.com/questions/11687478/convert-a-filename-to-a-file-url
-    """
-    return urljoin('file:', pathname2url(path))
-
-
 def log(msg, status=False):
     """Log message."""
 
@@ -847,8 +839,11 @@ class TabsExtraListener(sublime_plugin.EventListener):
 class TabsExtraViewWrapperCommand(sublime_plugin.WindowCommand):
     """Wrapper for for executing certain commands from the tab context menu."""
 
-    def run(self, command, group=-1, index=-1, args={}):
+    def run(self, command, group=-1, index=-1, args=None):
         """Wrap command in order to ensure view gets focused first."""
+
+        if args is None:
+            args = {}
 
         if group >= 0 and index >= 0:
             view = get_group_view(self.window, group, index)
@@ -1044,8 +1039,11 @@ class TabsExtraMoveCommand(sublime_plugin.WindowCommand):
 class TabsExtraRevertCommand(TabsExtraViewWrapperCommand):
     """Revert changes in file."""
 
-    def is_visible(self, command, group=-1, index=-1, args={}):
+    def is_visible(self, command, group=-1, index=-1, args=None):
         """Determine if command should be visible in menu."""
+
+        if args is None:
+            args = {}
 
         enabled = False
         if group >= 0 and index >= 0:
@@ -1058,8 +1056,11 @@ class TabsExtraRevertCommand(TabsExtraViewWrapperCommand):
 class TabsExtraFileCommand(TabsExtraViewWrapperCommand):
     """Wrapper for file commands."""
 
-    def is_enabled(self, command, group=-1, index=-1, args={}):
+    def is_enabled(self, command, group=-1, index=-1, args=None):
         """Determine if command should be enabled."""
+
+        if args is None:
+            args = {}
 
         enabled = False
         if group >= 0 and index >= 0:
@@ -1084,7 +1085,7 @@ class TabsExtraFilePathCommand(sublime_plugin.WindowCommand):
                 if path_type == 'name':
                     pth = basename(pth)
                 elif path_type == 'path_uri':
-                    pth = path2url( pth )
+                    pth = urljoin('file:', pathname2url(pth))
                 sublime.set_clipboard(pth)
 
     def is_enabled(self, group=-1, index=-1, path_type='path'):
