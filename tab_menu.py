@@ -13,9 +13,9 @@ import json
 from .lib.file_strip.json import sanitize_json
 import codecs
 
-__format__ = "1.6.0"
+__format__ = "1.7.0"
 __changes__ = [
-    "Add 'Move' command"
+    "Add 'Path URI' copy command"
 ]
 
 PACKAGE_NAME = "TabsExtra"
