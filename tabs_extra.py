@@ -1050,7 +1050,11 @@ class TabsExtraFilePathCommand(sublime_plugin.WindowCommand):
                 view.run_command('copy_path')
                 pth = sublime.get_clipboard()
                 if path_type == 'name':
-                    pth = os.path.basename(pth)
+                        pth = os.path.basename(pth)
+
+                if view.name():
+                    pth = view.name()
+
                 elif path_type == 'path_uri':
                     pth = urljoin('file:', pathname2url(pth))
                 sublime.set_clipboard(pth)
@@ -1062,7 +1066,7 @@ class TabsExtraFilePathCommand(sublime_plugin.WindowCommand):
         if group >= 0 and index >= 0:
             view = get_group_view(self.window, group, index)
             if view is not None:
-                enabled = view.file_name() is not None
+                enabled = view.file_name() is not None or view.name() is not None
         return enabled
 
 
